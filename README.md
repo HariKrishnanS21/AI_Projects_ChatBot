@@ -16,21 +16,28 @@ A LangChain + LLaMA3-powered AI assistant that allows Depot Managers to ask ques
 
 🚀 How to Run
    1. ✅ Requirements
+      
        Python 3.10+
     
        Ollama (LLaMA 3.2 model must be installed)
     
        MySQL (database with logistics schema)
     
-  2. 📦 Install Dependencies
-       pip install langchain langchain-community langchain-ollama mysql-connector-python tkinter
-  3. ⚙️ Start LLaMA Model
+  3. 📦 Install Dependencies
+
+     pip install langchain langchain-community langchain-ollama mysql-connector-python tkinter
+     
+  5. ⚙️ Start LLaMA Model
+     
        ollama run llama3.2
-  4. 🧠 Configure MySQL
-       Make sure to update your DB URI inside bot.py:
-       db = SQLDatabase.from_uri("mysql+mysqlconnector://<user>:<password>@localhost/logistics_ai")
+     
+  7. 🧠 Configure MySQL
+
+     Make sure to update your DB URI inside bot.py:
+
+     db = SQLDatabase.from_uri("mysql+mysqlconnector://(user):(password)@localhost/(db_name)")
     
-       The schema should include these tables with proper relationships:
+     The schema should include these tables with proper relationships:
     
        user (user_id, user_email, user_original_password, user_type)
     
@@ -40,26 +47,34 @@ A LangChain + LLaMA3-powered AI assistant that allows Depot Managers to ask ques
     
        jobsheet (js_depot_id, js_company_id, labour_charge)
     
-  5. ▶️ Run the App
+  9. ▶️ Run the App
        python ChatBody.py
+     
 🧩 Project Structure
-  📁 project-root
-  ├── bot.py           # LangChain logic, DB connection, prompt, agent setup
-  ├── ChatBody.py      # Tkinter GUI logic and user interaction
-  └── README.md        # This file
+
+📁 project-root
+
+├── bot.py           # LangChain logic, DB connection, prompt, agent setup
+
+├── ChatBody.py      # Tkinter GUI logic and user interaction
+
+└── README.md        # This file
+
 📌 Assumptions
-  The chatbot is used only by depot managers (user_type = 'D').
+
+The chatbot is used only by depot managers (user_type = 'D').
   
-  All SQL queries are generated automatically using LangChain's agent tools.
+All SQL queries are generated automatically using LangChain's agent tools.
   
-  LLaMA3 provides natural-sounding, friendly responses to depot managers.
+LLaMA3 provides natural-sounding, friendly responses to depot managers.
   
-  Final answer is extracted from raw agent output using a summarization chain.
+Final answer is extracted from raw agent output using a summarization chain.
 
 ✅ Sample Use Cases
-  “What’s the total labour charge for my depot this week?”
+
+“What’s the total labour charge for my depot this week?”
   
-  “Show me the contact number of our depot.”
+“Show me the contact number of our depot.”
   
-  “How many jobsheets were created today?”
+“How many jobsheets were created today?”
 
