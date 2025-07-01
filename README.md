@@ -23,22 +23,13 @@ Ollama (LLaMA 3.2 model must be installed)
 MySQL (database with logistics schema)
 
 2. 📦 Install Dependencies
-bash
-Copy
-Edit
 pip install langchain langchain-community langchain-ollama mysql-connector-python tkinter
 3. ⚙️ Start LLaMA Model
-bash
-Copy
-Edit
 ollama run llama3.2
 4. 🧠 Configure MySQL
 Make sure to update your DB URI inside bot.py:
-
-python
-Copy
-Edit
 db = SQLDatabase.from_uri("mysql+mysqlconnector://<user>:<password>@localhost/logistics_ai")
+
 The schema should include these tables with proper relationships:
 
 user (user_id, user_email, user_original_password, user_type)
@@ -50,14 +41,8 @@ company (company_id, company_user_id)
 jobsheet (js_depot_id, js_company_id, labour_charge)
 
 5. ▶️ Run the App
-bash
-Copy
-Edit
 python ChatBody.py
 🧩 Project Structure
-bash
-Copy
-Edit
 📁 project-root
 ├── bot.py           # LangChain logic, DB connection, prompt, agent setup
 ├── ChatBody.py      # Tkinter GUI logic and user interaction
